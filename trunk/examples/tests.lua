@@ -142,7 +142,7 @@ function testJSON4Lua()
   r,e = json.decode_scanConstant(s,2)
   assert(r==nil and e==6)
   
-  -- Test decode_scanArray
+  -- Test decode_scanArray  
   s = "[1,2,3]"
   r,e = json.decode_scanArray(s,1)
   assert(compareData(r,{1,2,3}))
@@ -169,6 +169,14 @@ function testJSON4Lua()
     "lua_is_great":true } ]]
   r,e = json.decode(s)
   assert(compareData(r, {primes={2,3,5,7,9},user={name='craig',age=35,programs_lua=true},lua_is_great=true}))
+
+  -- Test decode of empty array and object
+  s = "[]"
+  r,e = json.decode(s)
+  assert(compareData(r,{}))
+  s = "{}"
+  r,e = json.decode(s)
+  assert(compareData(r,{}))  
   
   -- Tests that unicode chars are preserved with escapes
   -- Unicode conversion tests removed because unicode conversion doesn't intrinsically make sense in Lua -
