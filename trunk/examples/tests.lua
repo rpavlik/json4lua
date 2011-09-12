@@ -142,7 +142,7 @@ function testJSON4Lua()
   r,e = json.decode_scanConstant(s,2)
   assert(r==nil and e==6)
   
-  -- Test decode_scanArray  
+  -- Test decode_scanArray
   s = "[1,2,3]"
   r,e = json.decode_scanArray(s,1)
   assert(compareData(r,{1,2,3}))
