@@ -30,6 +30,10 @@ install:
 clean:
 	@$(call inf,"Cleaning is done!")
 
+test:
+	cd json && lua ../examples/tests.lua
+	@$(call inf,"Testing is done!")
+
 uninstall: clean
 	@$(call wrn,"Uninstalling...")
 	rm -f $(LUA_LIBDIR)/{json,rpc,rpcserver}.lua
