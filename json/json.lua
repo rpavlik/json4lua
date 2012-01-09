@@ -262,7 +262,7 @@ do
 ]]--
 
 	-- obj key reader, expects the end of the object or a quoted string as key
-	init_token_table (tt_object_key) "object (' or \" or } or , expected)" 
+	init_token_table (tt_object_key) "object (' or \" or } or , expected)"
 		:link(tt_singlequote_string) :to "'"
 		:link(tt_doublequote_string) :to '"'
 		:link(true)                  :to "}"
@@ -473,9 +473,9 @@ do
 			while true do
 				local sep = next_token(tt_array_seperator)
 				if sep == true then  -- ... we found a terminator token
-				return o
-			end
-			o[i] = read_value(sep, tt_array_seperator)
+					return o
+				end
+				o[i] = read_value(sep, tt_array_seperator)
 				local t = next_token(tt_array_value)
 				if t == tt_comment_start then
 					t = read_comment(tt_array_value)
